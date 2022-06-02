@@ -1,22 +1,13 @@
 import React, { useState } from "react";
-import Button from "../Button/Button";
 import "./styles.css";
+
 const Form = ({ onAdd }) => {
   const [url, setUrl] = useState([]);
-  
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    //Small validation
-    if (!url) {
-      alert("Please add a url");
-      return;
-    }
-
     onAdd({ url });
-    console.log(url);
-
     setUrl("");
   };
 
@@ -31,15 +22,13 @@ const Form = ({ onAdd }) => {
             onChange={(e) => setUrl(e.target.value)}
           />
         </div>
-        <input type="submit" value="Add URL" className="btn btn-block" />
-        {/* <Button
-          type="submit"
-          color="#004743"
-          text="Add new URL"
-          onClick={onAdd}
-        /> */}
+        <div className="form-btn">
+          <button type="submit" className="btn btn-block">
+            {" "}
+            Add URL
+          </button>
+        </div>
       </form>
-       
     </>
   );
 };
